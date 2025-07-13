@@ -1,0 +1,11 @@
+.uc-back {
+  gap: 0.3125rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  p {
+    cursor: pointer;
+    color: var(--text-color);
+  }
+}

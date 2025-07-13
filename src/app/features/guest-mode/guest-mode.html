@@ -1,20 +1,42 @@
-<div class="guest-mode">
-  <div class="guest-mode__wrapper">
-    <div class="guest-mode__title">
-      <h1>Get ready to get more done</h1>
-      <h3>Let’s start with your name</h3>
-    </div>
+<div class="guest-mode" [ngStyle]="{
+    'background-image': selectedGradient() ? 'url(' + selectedGradient() + ')'
+     : 'url(/assets/wallpaper/aura-twilight.jpg)'
+  }">
+  <div class="guest-mode__wrapper" [class.gradients]="currentStep() === 2">
+    @if (currentStep() === 1) {
+      <div class="guest-mode__title">
+        <h1 class="guest-mode-title">Get ready to get more done</h1>
+        <h3>Let’s start with your name</h3>
+      </div>
 
-    <div class="guest-mode__form">
-      <form (ngSubmit)="startGuestMode()">
+      <div class="guest-mode__form">
         <input class="guest-mode-input" type="text" placeholder="First name" [(ngModel)]="firstName"
                name="firstName">
-        <button tuiButton type="submit">Continue</button>
-        <span>or press enter</span>
-      </form>
-    </div>
+        <button tuiButton [disabled]="isNameInvalid" (click)="goToStep(2)">Continue</button>
+      </div>
 
-    <div class="guest-mode__links">
-    </div>
+      <div class="guest-mode__links">
+      </div>
+    }
+
+    @if (currentStep() === 2) {
+      <div class="guest-mode__gradients">
+        <uc-back (clickBack)="goBack()"/>
+        <div class="guest-mode__gradients-title">
+          <h1 class="guest-mode-title">Lastly, let’s pick your theme</h1>
+
+          <button tuiButton (click)="startGuestMode()">Finish</button>
+        </div>
+        <div class="guest-mode__gradients-img">
+          @for (gradient of gradientImages(); track gradient) {
+            <div class="gradients-img-wrapper" (click)="selectGradient(gradient.urlWallpaper)">
+              <img [src]="gradient.url" [alt]="gradient.title">
+              <span>{{ gradient.title }}</span>
+            </div>
+          }
+          <button tuiButton (click)="startGuestMode()">Finish</button>
+        </div>
+      </div>
+    }
   </div>
 </div>
