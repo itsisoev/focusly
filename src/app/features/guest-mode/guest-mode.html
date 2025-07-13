@@ -6,9 +6,10 @@
     </div>
 
     <div class="guest-mode__form">
-      <form>
-        <input class="guest-mode-input" type="text" placeholder="First name">
-        <button tuiButton>Continue</button>
+      <form (ngSubmit)="startGuestMode()">
+        <input class="guest-mode-input" type="text" placeholder="First name" [(ngModel)]="firstName"
+               name="firstName">
+        <button tuiButton type="submit">Continue</button>
         <span>or press enter</span>
       </form>
     </div>
