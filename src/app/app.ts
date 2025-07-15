@@ -1,19 +1,38 @@
 import {TuiRoot} from "@taiga-ui/core";
-import {Component, OnInit, signal} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {Component, inject, OnInit, signal} from '@angular/core';
+import {ActivatedRoute, NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {NgStyle} from '@angular/common';
+import {Header} from './layout/header/header';
+import {Footer} from './layout/footer/footer';
+import {filter} from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TuiRoot, NgStyle],
+  imports: [RouterOutlet, TuiRoot, NgStyle, Header, Footer],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App implements OnInit {
+  private readonly router = inject(Router);
+  private readonly activatedRoute = inject(ActivatedRoute);
+
+  showHeader = signal<boolean>(true);
   imgBackground = signal<string>('');
 
   ngOnInit() {
     this.loadBackgroundFromStorage();
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      let route = this.activatedRoute;
+      while (route.firstChild) {
+        route = route.firstChild;
+      }
+
+      const data = route.snapshot.data;
+      this.showHeader.set(data?.['showHeader'] !== false);
+    });
   }
 
   private loadBackgroundFromStorage() {
@@ -23,3 +42,5 @@ export class App implements OnInit {
     }
   }
 }
+
+

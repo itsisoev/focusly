@@ -4,11 +4,19 @@ import {guestModeGuard} from './core/guards/guest-mode-guard';
 export const routes: Routes = [
   {
     path: 'guest',
-    loadChildren: () => import('./features/guest-mode/guest-mode.routes').then(m => m.guestModeRoutes)
+    loadChildren: () => import('./features/guest-mode/guest-mode.routes').then(m => m.guestModeRoutes),
+    data: {
+      showHeader: false
+    }
   },
   {
     canActivate: [guestModeGuard],
     path: '',
-    children: []
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./features/home/home.routes').then(m => m.homeRoutes)
+      }
+    ]
   }
 ];

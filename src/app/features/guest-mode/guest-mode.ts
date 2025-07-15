@@ -4,7 +4,6 @@ import {FormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
 import {GradientsService} from '../../core/services/gradients';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {NgStyle} from '@angular/common';
 import {UcBack} from '../../shared/components/uc-back/uc-back';
 
 
@@ -13,7 +12,6 @@ import {UcBack} from '../../shared/components/uc-back/uc-back';
   imports: [
     TuiButton,
     FormsModule,
-    NgStyle,
     UcBack,
   ],
   templateUrl: './guest-mode.html',

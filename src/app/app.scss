@@ -1,7 +1,26 @@
+@use "../theme/theme";
+
 .app-container {
   width: 100%;
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__header {
+    width: 100%;
+    font-family: "Noto Sans", sans-serif;
+  }
+
+  &__routes {
+    font-family: "Noto Sans", sans-serif;
+  }
+
+  &__footer {
+    font-family: "Noto Sans", sans-serif;
+  }
 }

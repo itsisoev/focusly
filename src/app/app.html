@@ -3,6 +3,19 @@
     'background-image': imgBackground() ? 'url(' + imgBackground() + ')'
      : 'url(/assets/wallpaper/aura-twilight.jpg)'
   }">
-    <router-outlet></router-outlet>
+    @if (showHeader()) {
+      <div class="app-container__header">
+        <layout-header/>
+      </div>
+    }
+    <div class="app-container__routes">
+      <router-outlet></router-outlet>
+    </div>
+
+    @if (showHeader()) {
+      <div class="app-container__footer">
+        <layout-footer/>
+      </div>
+    }
   </div>
 </tui-root>
