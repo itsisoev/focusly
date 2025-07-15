@@ -1,7 +1,4 @@
-<div class="guest-mode" [ngStyle]="{
-    'background-image': selectedGradient() ? 'url(' + selectedGradient() + ')'
-     : 'url(/assets/wallpaper/aura-twilight.jpg)'
-  }">
+<div class="guest-mode">
   <div class="guest-mode__wrapper" [class.gradients]="currentStep() === 2">
     @if (currentStep() === 1) {
       <div class="guest-mode__title">
