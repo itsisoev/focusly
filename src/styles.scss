@@ -5,9 +5,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body, app-root, tui-root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body, tui-root {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 body {
   font-family: "Noto Sans", sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 li {

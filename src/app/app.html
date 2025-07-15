@@ -1,3 +1,8 @@
 <tui-root>
-  <router-outlet></router-outlet>
+  <div class="app-container" [ngStyle]="{
+    'background-image': imgBackground() ? 'url(' + imgBackground() + ')'
+     : 'url(/assets/wallpaper/aura-twilight.jpg)'
+  }">
+    <router-outlet></router-outlet>
+  </div>
 </tui-root>
