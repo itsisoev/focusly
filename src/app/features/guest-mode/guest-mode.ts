@@ -1,10 +1,11 @@
-import {ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal} from '@angular/core';
-import {TuiButton} from '@taiga-ui/core';
-import {FormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
-import {GradientsService} from '../../core/services/gradients';
-import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {UcBack} from '../../shared/components/uc-back/uc-back';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import {TuiButton, TuiScrollbar} from '@taiga-ui/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { GradientsService } from '../../shared/service/gradients';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { UcBack } from '../../shared/components/uc-back/uc-back';
+import {BackgroundService} from '../../shared/service/background';
 
 
 @Component({
@@ -13,14 +14,16 @@ import {UcBack} from '../../shared/components/uc-back/uc-back';
     TuiButton,
     FormsModule,
     UcBack,
+    TuiScrollbar,
   ],
   templateUrl: './guest-mode.html',
   styleUrl: './guest-mode.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GuestMode implements OnInit {
-  private readonly router = inject(Router)
+  private readonly router = inject(Router);
   private readonly gradientService = inject(GradientsService);
+  private readonly backgroundService = inject(BackgroundService);
   private readonly destroyRef = inject(DestroyRef);
 
   firstName = signal<string>("");
@@ -35,10 +38,9 @@ export class GuestMode implements OnInit {
   ngOnInit() {
     this.getGradientImages();
 
-    const savedGradient = localStorage.getItem('selected_gradient');
-    if (savedGradient) {
-      this.selectedGradient.set(savedGradient);
-      document.body.style.backgroundImage = `url(${savedGradient})`;
+    const currentBg = this.backgroundService.backgroundImage();
+    if (currentBg) {
+      this.selectedGradient.set(currentBg);
     }
   }
 
@@ -59,7 +61,7 @@ export class GuestMode implements OnInit {
 
   selectGradient(url: string) {
     this.selectedGradient.set(url);
-    localStorage.setItem('selected_gradient', url);
+    this.backgroundService.setBackground(url);
   }
 
   goToStep(step: number) {

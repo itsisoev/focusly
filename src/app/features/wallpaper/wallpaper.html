@@ -1,0 +1,14 @@
+<div class="wallpaper-container">
+  <div class="wallpaper-container__wrapper">
+    <div class="wallpaper-container__header">
+      <h2>Pick your Ambient Mode world</h2>
+    </div>
+    <tui-scrollbar>
+      <div class="wallpaper-container__wallpaper">
+        @for (wallpaper of gradientImages(); track wallpaper) {
+          <img [src]="wallpaper.url" alt="" (click)="selectGradient(wallpaper.urlWallpaper)">
+        }
+      </div>
+    </tui-scrollbar>
+  </div>
+</div>

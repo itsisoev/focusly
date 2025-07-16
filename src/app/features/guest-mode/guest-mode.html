@@ -24,15 +24,17 @@
 
           <button tuiButton (click)="startGuestMode()">Finish</button>
         </div>
-        <div class="guest-mode__gradients-img">
-          @for (gradient of gradientImages(); track gradient) {
-            <div class="gradients-img-wrapper" (click)="selectGradient(gradient.urlWallpaper)">
-              <img [src]="gradient.url" [alt]="gradient.title">
-              <span>{{ gradient.title }}</span>
-            </div>
-          }
-          <button tuiButton (click)="startGuestMode()">Finish</button>
-        </div>
+        <tui-scrollbar>
+          <div class="guest-mode__gradients-img">
+            @for (gradient of gradientImages(); track gradient) {
+              <div class="gradients-img-wrapper" (click)="selectGradient(gradient.urlWallpaper)"
+                   [class.selected]="selectedGradient() === gradient.urlWallpaper">
+                <img [src]="gradient.url" [alt]="gradient.title">
+                <span>{{ gradient.title }}</span>
+              </div>
+            }
+          </div>
+        </tui-scrollbar>
       </div>
     }
   </div>

@@ -5,6 +5,7 @@ import {NgStyle} from '@angular/common';
 import {Header} from './layout/header/header';
 import {Footer} from './layout/footer/footer';
 import {filter} from 'rxjs';
+import {BackgroundService} from './shared/service/background';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +16,14 @@ import {filter} from 'rxjs';
 export class App implements OnInit {
   private readonly router = inject(Router);
   private readonly activatedRoute = inject(ActivatedRoute);
+  private readonly backgroundService = inject(BackgroundService);
 
   showHeader = signal<boolean>(true);
   imgBackground = signal<string>('');
+
+  get backgroundImage() {
+    return this.backgroundService.backgroundImage;
+  }
 
   ngOnInit() {
     this.loadBackgroundFromStorage();

@@ -16,18 +16,18 @@
       align-items: center;
       background-color: #2e2446;
       border-radius: 1.875rem;
-      padding: 0.3125rem 0.625rem 0.1875rem 0.625rem;
+      padding: 0.3125rem 0.625rem 0.2875rem 0.625rem;
 
       a {
         height: 1.9375rem;
 
         &:hover {
-          background-color: #7432ff;
+          background-color: rgba(143, 89, 255, 0.48);
           border-radius: 10px;
         }
       }
 
-      &.active-link {
+      .active-link {
         background-color: #7432ff;
         border-radius: 10px;
       }
