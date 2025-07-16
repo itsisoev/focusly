@@ -3,4 +3,34 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  &__left {
+    gap: 0.625rem;
+    display: flex;
+  }
+
+  &__right {
+
+    .right-links {
+      display: flex;
+      align-items: center;
+      background-color: #2e2446;
+      border-radius: 1.875rem;
+      padding: 0.3125rem 0.625rem 0.1875rem 0.625rem;
+
+      a {
+        height: 1.9375rem;
+
+        &:hover {
+          background-color: #7432ff;
+          border-radius: 10px;
+        }
+      }
+
+      &.active-link {
+        background-color: #7432ff;
+        border-radius: 10px;
+      }
+    }
+  }
 }
