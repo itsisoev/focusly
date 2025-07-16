@@ -10,18 +10,23 @@
     "title": "Grainy Gradient"
   },
   {
-    "url": "assets/gradients/lava-lamp.jpg",
-    "urlWallpaper": "assets/wallpaper/lava-lamp.jpg",
-    "title": "Lava Lamp"
-  },
-  {
-    "url": "assets/gradients/minimalist-black.jpg",
-    "urlWallpaper": "assets/wallpaper/minimalist-black.jpg",
-    "title": "Minimalist Black"
-  },
-  {
     "url": "assets/gradients/peach-aura-heart.jpg",
     "urlWallpaper": "assets/wallpaper/peach-aura-heart.jpg",
     "title": "Peach Aura Heart"
+  },
+  {
+    "url": "assets/gradients/countryside-morning.jpg",
+    "urlWallpaper": "assets/wallpaper/countryside-morning.jpg",
+    "title": "Countryside Morning"
+  },
+  {
+    "url": "assets/gradients/lofi-cafe.jpg",
+    "urlWallpaper": "assets/wallpaper/lofi-cafe.jpg",
+    "title": "Lofi Cafe"
+  },
+  {
+    "url": "assets/gradients/toto-forest.jpg",
+    "urlWallpaper": "assets/wallpaper/toto-forest.jpg",
+    "title": "Toto Forest"
   }
 ]

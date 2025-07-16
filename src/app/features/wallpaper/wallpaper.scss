@@ -1,0 +1,59 @@
+.wallpaper-container {
+  color: white;
+
+  &__wrapper {
+    width: 51rem;
+    height: 31.25rem;
+    background: radial-gradient(98.68% 212.38% at 1.32% 3.1%, rgba(0, 0, 0, 0.64) 0%, rgba(0, 0, 0, 0.16) 100%);
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  &__header {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  &__wallpaper {
+    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    max-height: 31.25rem;
+
+    img {
+      width: 10.9375rem;
+      height: 6.375rem;
+      border-radius: 0.625rem;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wallpaper-container {
+    &__header {
+      h2 {
+        font-size: 1rem;
+      }
+    }
+
+    &__wrapper {
+      width: 21rem;
+      height: 100%;
+    }
+
+    &__wallpaper {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      max-height: 18.75rem;
+      align-items: center;
+
+      img {
+        width: 250px;
+        height: auto;
+      }
+    }
+  }
+}
