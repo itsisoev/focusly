@@ -1,6 +1,8 @@
 <div class="home-container">
-  <h2>{{ motivationalQuote() }}</h2>
+  <div class="home-container__quote">
+    {{ motivationalQuote() }}
+  </div>
   <div class="home-container__clock">
-    <uc-clock [time]="currentTime()"/>
+    <uc-clock [time]="currentTime()" />
   </div>
 </div>
