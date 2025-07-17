@@ -1,0 +1,19 @@
+<div class="focus-setting-container">
+  <div class="focus-setting-container__select-timer-mode">
+    <h2>Select timer mode</h2>
+    <tui-textfield tuiChevron>
+      <input
+        tuiSelect
+        [(ngModel)]="selected"
+        (ngModelChange)="onSelect($event)"
+        placeholder="Timer mode"
+      />
+
+      <tui-data-list-wrapper
+        *tuiTextfieldDropdown
+        new
+        [items]="mode()"
+      />
+    </tui-textfield>
+  </div>
+</div>
