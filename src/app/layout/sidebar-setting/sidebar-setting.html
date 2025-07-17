@@ -1,0 +1,27 @@
+<div class="sidebar-container" [class.open]="openSidebar()">
+  <div class="sidebar-content">
+    <div class="sidebar-container__header">
+      <button
+        appearance="glass"
+        size="xs"
+        tuiButtonClose
+        tuiIconButton
+        type="button"
+        (click)="close()"
+      >
+        Close
+      </button>
+      <h3>Setting</h3>
+    </div>
+    <div class="setting-item">
+      <label>
+        <span>Focus Timer</span>
+      </label>
+    </div>
+    <div class="setting-item">
+      <label>
+        <span>Уведомления</span>
+      </label>
+    </div>
+  </div>
+</div>

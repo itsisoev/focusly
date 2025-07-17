@@ -1,0 +1,61 @@
+.focus-container {
+  &__header {
+    .header-buttons {
+      gap: 0.9375rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        color: white;
+      }
+
+      .active-timer-btn {
+        background-color: #526ed3;
+        color: #fff;
+        border: none;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: #526ed3;
+        }
+      }
+    }
+  }
+
+  &__timer {
+    .timer {
+      margin-top: 6.25rem;
+    }
+
+    .timer-buttons {
+      gap: 0.9375rem;
+      display: flex;
+      align-items: center;
+      margin-top: 1.25rem;
+      justify-content: center;
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .focus-container {
+    &__header {
+      .header-buttons {
+        width: 300px;
+      }
+    }
+
+    &__timer {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+
+      .timer {
+        margin-top: 2.5rem;
+      }
+    }
+  }
+}

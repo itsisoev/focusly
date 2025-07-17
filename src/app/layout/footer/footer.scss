@@ -4,16 +4,22 @@
   align-items: center;
   justify-content: space-between;
 
+  .btn-dark-violet {
+    width: 40px;
+    height: 40px;
+    padding: 0 !important;
+  }
+
   &__left {
     gap: 0.625rem;
     display: flex;
   }
 
-  &__right {
+  &__main {
     gap: 0.9375rem;
     display: flex;
 
-    .right-links {
+    .main-links {
       display: flex;
       align-items: center;
       background-color: #2e2446;
@@ -35,10 +41,19 @@
         border-radius: 10px;
       }
     }
+  }
 
+  &__fight {
     .right-buttons {
       gap: 0.625rem;
       display: flex;
     }
   }
 }
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 1rem;
+  }
+}
+
