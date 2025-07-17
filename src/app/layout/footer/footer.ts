@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
@@ -12,5 +12,15 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Footer {
+  toggleFullscreen() {
+    const elem = document.documentElement;
 
+    if (!document.fullscreenElement) {
+      elem.requestFullscreen().catch(err => {
+        console.error(`Ошибка при попытке включить полноэкранный режим: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  }
 }

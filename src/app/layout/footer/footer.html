@@ -14,12 +14,21 @@
       <a routerLink="/wallpaper" routerLinkActive="active-link">
         <img src="/assets/svg/lotus.svg" width="30" alt="">
       </a>
-      <a routerLink="/" routerLinkActive="active-link"   [routerLinkActiveOptions]="{ exact: true }">
+      <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
         <img src="/assets/svg/home.svg" width="30" alt="">
       </a>
-      <a routerLink="/asd" routerLinkActive="active-link">
+      <a routerLink="/focus" routerLinkActive="active-link">
         <img src="/assets/svg/idea.svg" width="30" alt="">
       </a>
+    </div>
+
+    <div class="right-buttons">
+      <button class="btn-dark-violet">
+        <img src="/assets/svg/setting.svg" width="20" height="20" alt="">
+      </button>
+      <button class="btn-dark-violet" (click)="toggleFullscreen()">
+        <img src="/assets/svg/full-screen.svg" width="20" height="20" alt="">
+      </button>
     </div>
   </div>
 </div>
