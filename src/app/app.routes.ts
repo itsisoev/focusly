@@ -20,6 +20,10 @@ export const routes: Routes = [
       {
         path: 'wallpaper',
         loadChildren: () => import('./features/wallpaper/wallpaper.routes').then(m => m.wallpaperRoutes)
+      },
+      {
+        path: 'focus',
+        loadChildren: () => import('./features/focus/focus.routes').then(m => m.focusRoutes)
       }
     ]
   }

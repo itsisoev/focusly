@@ -10,6 +10,8 @@
   }
 
   &__right {
+    gap: 0.9375rem;
+    display: flex;
 
     .right-links {
       display: flex;
@@ -17,6 +19,7 @@
       background-color: #2e2446;
       border-radius: 1.875rem;
       padding: 0.3125rem 0.625rem 0.2875rem 0.625rem;
+      border: 2px solid var(--white);
 
       a {
         height: 1.9375rem;
@@ -31,6 +34,11 @@
         background-color: #7432ff;
         border-radius: 10px;
       }
+    }
+
+    .right-buttons {
+      gap: 0.625rem;
+      display: flex;
     }
   }
 }
