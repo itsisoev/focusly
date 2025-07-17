@@ -1,12 +1,10 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, signal} from '@angular/core';
 import {TuiButton, TuiScrollbar} from '@taiga-ui/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { GradientsService } from '../../shared/service/gradients';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { UcBack } from '../../shared/components/uc-back/uc-back';
+import {FormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
+import {UcBack} from '../../shared/components/uc-back/uc-back';
 import {BackgroundService} from '../../shared/service/background';
-
+import gradients from '../../shared/data/gradients.json';
 
 @Component({
   selector: 'features-guest-mode',
@@ -20,11 +18,9 @@ import {BackgroundService} from '../../shared/service/background';
   styleUrl: './guest-mode.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GuestMode implements OnInit {
+export class GuestMode {
   private readonly router = inject(Router);
-  private readonly gradientService = inject(GradientsService);
   private readonly backgroundService = inject(BackgroundService);
-  private readonly destroyRef = inject(DestroyRef);
 
   firstName = signal<string>("");
   gradientImages = signal<{ url: string; title: string; urlWallpaper: string }[]>([]);
@@ -35,8 +31,8 @@ export class GuestMode implements OnInit {
     return this.firstName().trim() === '';
   }
 
-  ngOnInit() {
-    this.getGradientImages();
+  constructor() {
+    this.gradientImages.set(gradients);
 
     const currentBg = this.backgroundService.backgroundImage();
     if (currentBg) {
@@ -51,13 +47,6 @@ export class GuestMode implements OnInit {
     this.router.navigate(['/']);
   }
 
-  getGradientImages() {
-    this.gradientService.fetchGradientImages()
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(res => {
-        this.gradientImages.set(res);
-      });
-  }
 
   selectGradient(url: string) {
     this.selectedGradient.set(url);
