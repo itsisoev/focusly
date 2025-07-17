@@ -1,1 +1,47 @@
-<p>focus works!</p>
+<div class="focus-container">
+  <div class="focus-container__wrapper">
+    <div class="focus-container__header">
+      <div></div>
+      <div class="header-buttons">
+        <button appearance="outline"
+                tuiAppearanceMode="checked"
+                tuiButton
+                [class.active-timer-btn]="mode() === 'focus'"
+                type="button" (click)="setMode('focus')"
+        >Focus</button>
+
+        <button appearance="outline"
+                tuiAppearanceMode="checked"
+                tuiButton
+                [class.active-timer-btn]="mode() === 'short'"
+                type="button" (click)="setMode('short')"
+        >Short Break
+        </button>
+
+        <button appearance="outline"
+                tuiAppearanceMode="checked"
+                tuiButton
+                [class.active-timer-btn]="mode() === 'long'"
+                type="button" (click)="setMode('long')"
+        >Long Break
+        </button>
+      </div>
+    </div>
+
+    <div class="focus-container__timer">
+      <div class="timer">
+        <uc-timer [time]="timeFormatted"/>
+      </div>
+
+      <div class="timer-buttons">
+        <button tuiButton (click)="start()">Start</button>
+        <button class="btn-icon" (click)="reset()">
+          <img src="/assets/svg/restart.svg" width="30" height="30" alt="">
+        </button>
+        <button class="btn-icon">
+          <img src="/assets/svg/screen-share.svg" width="30" height="30" alt="">
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

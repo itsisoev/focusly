@@ -1,0 +1,62 @@
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 300px;
+  background-color: #1e1e2f;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  color: white;
+  padding: 1.5rem;
+
+  &.open {
+    transform: translateX(0%);
+  }
+
+  &__header {
+    gap: 0.9375rem;
+    display: flex;
+    border-bottom: 1px solid #444;
+  }
+
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+    max-height: 100%;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c2c3a;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+
+    span {
+      font-size: 1rem;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-container {
+    width: 100%;
+  }
+}

@@ -9,8 +9,8 @@
     </button>
   </div>
 
-  <div class="footer-container__right">
-    <div class="right-links">
+  <div class="footer-container__main">
+    <div class="main-links">
       <a routerLink="/wallpaper" routerLinkActive="active-link">
         <img src="/assets/svg/lotus.svg" width="30" alt="">
       </a>
@@ -21,9 +21,14 @@
         <img src="/assets/svg/idea.svg" width="30" alt="">
       </a>
     </div>
+  </div>
 
+  <div class="footer-container__fight">
     <div class="right-buttons">
       <button class="btn-dark-violet">
+        <img src="/assets/svg/profile.svg" width="20" height="20" alt="">
+      </button>
+      <button class="btn-dark-violet" (click)="toggleOpenSidebar()">
         <img src="/assets/svg/setting.svg" width="20" height="20" alt="">
       </button>
       <button class="btn-dark-violet" (click)="toggleFullscreen()">
@@ -32,3 +37,7 @@
     </div>
   </div>
 </div>
+
+@if (openSidebar()) {
+  <layout-sidebar-setting [(openSidebar)]="openSidebar"/>
+}
